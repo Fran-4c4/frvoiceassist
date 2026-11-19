@@ -1,0 +1,20 @@
+[project]
+name = "frvoiceassist"
+version = "0.1.0"
+description = "Asistente de voz local: texto en inglés leído con tu voz clonada (Qwen3-TTS + FastAPI)"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Fran Moreno Santana" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+    # B008: FastAPI intentionally uses calls such as File(...) and Form(...) as defaults
+ignore = ["B008"]

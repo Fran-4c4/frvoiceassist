@@ -1,0 +1,11 @@
+{
+  "name": "frvoiceassist-e2e",
+  "private": true,
+  "description": "Test e2e de la UI (Chrome headless). Ver README.md",
+  "scripts": {
+    "test": "node ui.test.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "23.11.1"
+  }
+}

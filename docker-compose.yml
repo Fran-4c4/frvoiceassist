@@ -1,0 +1,51 @@
+name: frvoiceassist
+
+# Store personal data (voices, presentations, and audio) in the user's home directory:
+#   Windows: C:\Users\<user>\frvoiceassist      Linux/macOS: ~/frvoiceassist
+# Override with FRVOICEASSIST_HOME in .env.
+
+x-common: &common
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+    args:
+      INSTALL_FLASH_ATTN: ${INSTALL_FLASH_ATTN:-false}
+  image: frvoiceassist:latest
+  env_file:
+    - path: .env
+      required: false
+
+services:
+  tts:
+    <<: *common
+    container_name: frvoiceassist
+    # On Linux, scripts/start.sh exports APP_UID/APP_GID so files belong to the user instead of root
+    user: "${APP_UID:-0}:${APP_GID:-0}"
+    volumes:
+      - ${FRVOICEASSIST_HOME:-${USERPROFILE:-${HOME}}/frvoiceassist}:/workspace
+      # Cache Hugging Face models in a Docker volume (faster than a Windows bind mount)
+      - hf-cache:/models
+    ports:
+      # Accessible only from this computer. Authentication is required before exposing it to a network.
+      - "127.0.0.1:${PORT:-8765}:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  # Tests without a GPU or personal data: docker compose --profile test run --rm tests
+  tests:
+    <<: *common
+    profiles: ["test"]
+    environment:
+      TTS_ENGINE: fake
+      QUALITY_STT: none
+      WORKSPACE_DIR: /tmp/workspace
+    command: ["pytest"]
+
+volumes:
+  hf-cache:

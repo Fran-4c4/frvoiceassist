@@ -1,0 +1,11 @@
+.git
+.venv
+venv
+**/__pycache__
+.pytest_cache
+.ruff_cache
+.env
+workspace
+docs
+*.md
+tests/e2e/node_modules

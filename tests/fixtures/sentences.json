@@ -1,0 +1,15 @@
+[
+  {"text": "Good morning. How are you? Great!", "sentences": ["Good morning.", "How are you?", "Great!"]},
+  {"text": "Task 6.3 is ready. Version 2.0 too.", "sentences": ["Task 6.3 is ready.", "Version 2.0 too."]},
+  {"text": "Title line\nSecond line.", "sentences": ["Title line", "Second line."]},
+  {"text": "He said \"stop.\" Then (finally.) we left", "sentences": ["He said \"stop.\"", "Then (finally.)", "we left"]},
+  {"text": "  One.   Two?\n\nThree", "sentences": ["One.", "Two?", "Three"]},
+  {"text": "Wait... what?! Really…  Yes.", "sentences": ["Wait...", "what?!", "Really…", "Yes."]},
+  {"text": "[Pause] Next slide, please. [Click]", "sentences": ["[Pause] Next slide, please.", "[Click]"],
+   "spoken": ["Next slide, please.", ""]},
+  {"text": "Today we look at three things.\n[click]\nFirst the start.", "sentences": ["Today we look at three things.", "[click]", "First the start."],
+   "spoken": ["Today we look at three things.", "", "First the start."]},
+  {"text": "We [quickly] move on.", "sentences": ["We [quickly] move on."], "spoken": ["We move on."]},
+  {"text": "Buenos Aires, Argentina. ¿Qué tal? Bien.", "sentences": ["Buenos Aires, Argentina.", "¿Qué tal?", "Bien."]},
+  {"text": "   \n  ", "sentences": []}
+]

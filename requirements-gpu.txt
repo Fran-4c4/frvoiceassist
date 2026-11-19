@@ -1,0 +1,6 @@
+# Qwen3-TTS engine. The Dockerfile installs torch/torchaudio first from the PyTorch CUDA index and pins them
+# with a constraints file so pip cannot replace them.
+qwen-tts==0.1.1
+# Reference-recording check (and phase 2 STT). Audio is passed already decoded as numpy, avoiding its PyAV
+# decoder dependency.
+faster-whisper>=1.1

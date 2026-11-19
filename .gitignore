@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.env
+node_modules/
+package-lock.json
+
+# Never version personal data if a local workspace is used
+workspace/
+voices/
+presentations/
+outputs/
+cache/
